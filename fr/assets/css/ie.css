@@ -1,0 +1,344 @@
+/******************************************************************
+Site Name: 
+Author: 
+
+Stylesheet: IE Stylesheet
+
+So instead of using the respond.js file to add media query support
+to IE, we're going to use SASS to create an easily readable css file.
+Here, we import all the styles the standard stylesheet gets, only
+without the media queries. No need to worry about editing anything!
+
+******************************************************************/
+/*
+Remember, all the BASE styles are called already since IE can
+read those. Below, we need to import only the stuff IE can't 
+understand (what's inside the media queries). We also need to
+import the mixins file so SASS can understand the variables.
+*/
+/* import mixins */
+/*********************
+CLEARFIXIN'
+*********************/
+.clearfix {
+  zoom: 1;
+}
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+
+/*********************
+TOOLS
+*********************/
+* {
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none;
+}
+
+/*********************
+SIZES
+*********************/
+/*********************
+COLORS
+Need help w/ choosing your colors? Try this site out:
+http://0to255.com/
+*********************/
+/*********************
+TYPOGRAPHY
+*********************/
+/*********************
+OTHER
+*********************/
+/*
+use the best ampersand
+http://simplebits.com/notebook/2008/08/14/ampersands-2/
+*/
+span.amp {
+  font-family: Baskerville,'Goudy Old Style',Palatino,'Book Antiqua',serif !important;
+  font-style: italic;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.alert-info {
+  margin: 10px;
+  padding: 5px 18px;
+  border: 1px solid;
+}
+
+.alert-info {
+  border-color: #bfe4f4;
+  background: #d5edf8;
+}
+
+/******************************************************************
+Site Name: arnaudvalle.com
+Author: Arnaud Valle
+
+Stylesheet: Grid Stylesheet
+
+I've seperated the grid so you can swap it out easily. It's
+called at the top the style.scss stylesheet.
+
+There are a ton of grid solutions out there. You should definitely
+experiment with your own. Here are some recommendations:
+
+http://gridsetapp.com - Love this site. Responsive Grids made easy.
+http://susy.oddbird.net/ - Grids using Compass. Very elegant.
+http://gridpak.com/ - Create your own responsive grid.
+
+The grid below is a combination of the 1140 grid and Twitter Boostrap. 
+I liked 1140 but Boostrap's grid was way more detailed so I merged them 
+together, let's see how this works out. If you want to use 1140, the original 
+values are commented out on each line.
+
+******************************************************************/
+.onecol {
+  width: 5.801104972%;
+}
+
+/* 4.85%;  } /* grid_1  */
+.twocol {
+  width: 14.364640883%;
+}
+
+/* 13.45%; } /* grid_2  */
+.threecol {
+  width: 22.928176794%;
+}
+
+/* 22.05%; } /* grid_3  */
+.fourcol {
+  width: 31.491712705%;
+}
+
+/* 30.75%; } /* grid_4  */
+.fivecol {
+  width: 40.055248616%;
+}
+
+/* 39.45%; } /* grid_5  */
+.sixcol {
+  width: 48.618784527%;
+}
+
+/* 48%;    } /* grid_6  */
+.sevencol {
+  width: 57.182320438000005%;
+}
+
+/* 56.75%; } /* grid_7  */
+.eightcol {
+  width: 65.74585634900001%;
+}
+
+/* 65.4%;  } /* grid_8  */
+.ninecol {
+  width: 74.30939226%;
+}
+
+/* 74.05%; } /* grid_9  */
+.tencol {
+  width: 82.87292817100001%;
+}
+
+/* 82.7%;  } /* grid_10 */
+.elevencol {
+  width: 91.436464082%;
+}
+
+/* 91.35%; } /* grid_11 */
+.twelvecol {
+  width: 99.999999993%;
+}
+
+/* 100%;   } /* grid_12 */
+.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol {
+  position: relative;
+  float: left;
+  margin-left: 2.762430939%;
+}
+
+.first {
+  margin-left: 0;
+}
+
+.last {
+  float: right;
+}
+
+/******************************************************************
+Site Name: arnaudvalle.com
+Author: Arnaud Valle 
+
+Stylesheet: 481px and Up Stylesheet
+
+This stylesheet is loaded for larger devices. It's set to 
+481px because at 480px it would load on a landscaped iPhone.
+This isn't ideal because then you would be loading all those
+extra styles on that same mobile connection. 
+
+A word of warning. This size COULD be a larger mobile device,
+so you still want to keep it pretty light and simply expand
+upon your base.scss styles.
+
+******************************************************************/
+/******************************************************************
+
+Stylesheet: Tablet & Small Desktop Stylesheet
+
+Here's where you can start getting into the good stuff.
+This size will work on iPads, other tablets, and desktops.
+So you can start working with more styles, background images,
+and other resources. You'll also notice the grid starts to
+come into play. Have fun!
+
+******************************************************************/
+/*********************
+GENERAL STYLES
+*********************/
+#main {
+  margin-top: auto;
+  margin-left: 250px;
+}
+
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+.flex-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.flex-container .col {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.flex-container .col--centered {
+  width: 65%;
+}
+
+/*********************
+HEADER STYLES
+*********************/
+.logo {
+  height: 250px;
+}
+
+.svg-logo {
+  height: auto;
+  width: auto;
+}
+
+/*********************
+NAVIGATION STYLES
+*********************/
+.p-nav {
+  display: block;
+  font-size: 1em;
+  padding: 2em 0;
+  text-transform: none;
+}
+
+.p-nav-item {
+  display: block;
+}
+.p-nav-item a {
+  -webkit-transition: background-color 0.2s ease-in;
+          transition: background-color 0.2s ease-in;
+  color: #fff;
+  display: block;
+  padding: 1.25em;
+  text-decoration: none;
+  padding: 1em 3em;
+}
+.p-nav-item a:hover, .p-nav-item a:active {
+  background-color: whitesmoke;
+  color: #27313d;
+}
+
+/*********************
+HERO
+*********************/
+.hero {
+  height: 250px;
+  padding: 0 3em;
+  text-align: left;
+}
+
+.hero-title {
+  font-size: 2.5em;
+}
+
+.hero-title-emphasis {
+  font-size: 1.8em;
+  text-transform: none;
+}
+
+.hero-tagline {
+  font-size: 1.3em;
+}
+
+/*********************
+SIDEBARS & ASIDES
+*********************/
+.sidebar {
+  height: 100%;
+  position: fixed;
+  width: 250px;
+}
+
+/*********************
+POSTS & CONTENT STYLES
+*********************/
+.heading--huge {
+  padding-bottom: 0;
+}
+
+/* 
+you can call the larger styles if you want, but there's really no need 
+*/
+/******************************************************************
+ADDITIONAL IE FIXES
+These fixes are now ONLY seen by IE, so you don't have to worry
+about using prefixes, although it's best practice. For more info
+on using Modernizr classes, check out this link:
+http://www.modernizr.com/docs/
+******************************************************************/
+/*
+For example, you can use something like:
+
+.no-textshadow .class { ... }
+
+You can also target specific versions by using the classes applied to
+the html element. These can sometimes change, so take a look inside the
+header.php file to see what they are:
+
+
+.lt-ie8 .class { ... }
+
+*/
