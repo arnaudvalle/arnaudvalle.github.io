@@ -5,6 +5,7 @@ const cacheName = `arnaudvalle-${version}`;
 self.addEventListener('install', e => {
     e.waitUntil(caches.open(cacheName).then(cache => {
         return cache.addAll([
+            `/`,
             `/index.html`,
             `/assets/css/style.css`,
             `/assets/js/scripts.js`,
