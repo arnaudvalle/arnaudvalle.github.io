@@ -1,0 +1,13 @@
+{ 
+    "background_color": "#009999",
+    "icons": [
+        {
+            "src": "/assets/images/logo-512x512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "name": "Arnaud Valle",
+    "short_name": "AV",
+    "theme_color": "#009999"
+}
