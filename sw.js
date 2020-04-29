@@ -1,4 +1,4 @@
-const version = "0.1.0";
+const version = "0.1.1";
 const cacheName = `arnaudvalle-${version}`;
 
 // Caching homepage and assets.
@@ -15,13 +15,13 @@ self.addEventListener('install', e => {
 });
 
 // Check in our cache and return the cached version of the assets if we have them.
-self.addEventListener('fetch', function(event) {
+self.addEventListener('fetch', function (event) {
     event.respondWith(
         caches.open(cacheName)
-          .then(cache => cache.match(event.request, {ignoreSearch: true}))
-          .then(response => {
-          return response || fetch(event.request);
-        })
-      );
-    
+            .then(cache => cache.match(event.request, { ignoreSearch: true }))
+            .then(response => {
+                return response || fetch(event.request);
+            })
+    );
+
 });
