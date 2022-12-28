@@ -1,0 +1,119 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <title>How a 3€ book ended up costing me several hundred euros Arnaud Valle - web development & design in Lyon, France</title>
+
+        <meta name="description" content="Arnaud Valle - Web development, responsive design and other web services in Lyon, France">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Arnaud Valle">
+        <meta name="theme-color" content="#009999"/>
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="manifest" href="/manifest.json">
+
+        <link rel="stylesheet" href="/style.css">
+        
+        <link rel="author" href="https://plus.google.com/u/0/115079317597578053324">
+    </head>
+
+    <body>
+        <div class="sidebar clearfix">
+            <a href="/" class="logo" rel="nofollow">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250" class="svg-logo">
+                    <title>Logo</title>
+                    <path d="M125.276 56.869l24.552 48.18h-.727c-.527 0-.989-.419-1.385-1.254L126.2 61.356a86.808 86.808 0 0 1-.759-1.551 8.195 8.195 0 0 1-.561-1.551 19.535 19.535 0 0 1-.594 1.551 33.48 33.48 0 0 1-.726 1.551l-21.516 42.438c-.44.835-.902 1.254-1.386 1.254h-.726l24.552-48.18h.792zM122.243 197.479l-27.258-52.272h11.616c.88 0 1.683.221 2.409.66.726.44 1.353 1.166 1.881 2.178l12.276 23.958a21.878 21.878 0 0 1 1.353 3.201 43.654 43.654 0 0 1 1.022 3.598c.309-1.276.65-2.476 1.023-3.598a21.987 21.987 0 0 1 1.353-3.201l12.343-23.958c.527-1.012 1.154-1.737 1.881-2.178a4.568 4.568 0 0 1 2.409-.66h11.615l-27.323 52.272h-6.6z"/>
+                </svg>
+            </a>
+    
+            <nav class="p-nav" role="navigation">
+                <ul>
+                    <li class="p-nav-item"><a href="#about">About</a></li>
+                    <li class="p-nav-item"><a href="#work">Work</a></li>
+                </ul>
+            </nav>
+            
+        </div>
+
+        <div id="main" role="main">
+            <header class="hero">
+                <h1 class="hero-title">Arnaud Valle</h1>
+                <h2 class="hero-title hero-title-emphasis">Front-end web development</h2>
+                <p class="hero-tagline">I make easy-to-use websites that work better for you</p>
+                <a href="#contact" class="c2a c2a-alt">Get in touch</a>
+            </header>
+    
+            <div class="clearfix" role="main">
+                <section class="flex-container">
+                    <div class="col">
+                        <h1 class="heading">How a 3€ book ended up costing me several hundred euros</h1>
+                        <h2>Backstory</h2>
+<p>I finally made the jump to an e-reader about a year ago (I know, I'm very late to the party, as usual) and I <em><strong>really</strong></em> like the experience so far.</p>
+<p>The first reason I like it, is that I’m constantly battling for space in my flat. So, having several dozen books fit into a tiny tablet is a big win for the sort of minimalism I am aiming for.</p>
+<p>Being able to organise all those books into neat lists and getting reading statistics is also a plus. Controlling the brightness or screen colour (depending on the time of day) is also a nice touch.</p>
+<p>Syncing my <a href="https://getpocket.com/">pocket</a> articles is <em><strong>even better</strong>.</em></p>
+<p>But the real killer feature for me is this: being able to choose my font face, font size, font weight, line height, margin etc... This is a frontend web developer dreamland 😊</p>
+<p>So, a few weeks back, when I bought an e-book and realised (too late) it was no more than a PDF scan of the original book (you could actually see through some of the pages and guess what was written on the other side… 🤯), I got a bit irritated.</p>
+<p>The main problem was that, since the pages of the book were essentially just images, all I could do was zoom in on my page (and that’s really annoying to do - e-readers weren’t really built with great hand gesture support in mind). Then, every time I turned a page, I had to reposition the image so it fitted ok on the screen.</p>
+<p>Overall, I went from a very comfortable reading experience with fine grained settings to a complete nightmare of a user experience 😱</p>
+<p>Also, on a side note, the book was massive: over 200MB when the average book I have bought so far is about 2MB (in epub format).</p>
+<h2>Research and proof of concept</h2>
+<p>So, the first thing I did was jump to my favourite search engine and try to figure out if anybody had built a magic tool to convert my scanned book to some other format my e-reader could handle (and recover all the sweet features I liked to much): HTML, RTF or, hell, even a good old TXT file would do!</p>
+<h3>Online tools</h3>
+<p>I tried some online tools, but they would generally only handle files up to 15MB - quite far off the size of my book. So that looked like a dead end.</p>
+<p>Along the way, I did learn what OCR (Optical Character Recognition) was though: it’s basically the technology that allows to convert a print document into a digital one. In my case, it would be the difference between a PDF with an image in it (one of the pages of my the book) and a PDF in which you can select or copy/paste text.</p>
+<h3>Software</h3>
+<p>Then I tried software like Wondershare’s PDF Element, but, again, the free version was a bit limited: it would only handle a few pages and, when I ran it on my book, the end result was read-only. I couldn’t export the files I had generated via the software using the free version so I’d eventually have to pay for something I’m not even sure would be what I’m after in the end…</p>
+<h3>npm and github to the rescue</h3>
+<p>Next up, I moved on to my beloved npm and github and started searching for some libraries or packages that would do what I was after. There’s always somebody way clever than me that has figured out a nice solution to the problem.</p>
+<p>I tried a few variations of searches and finally landed on <a href="https://github.com/naptha/tesseract.js">tesseract.js</a>: “Pure Javascript OCR for more than 100 Languages” they say. Ok, cool, that seems nice. Tesseract is an OCR engine and this is a JavaScript port of it. My day-to-day job involves quite a bit of JavaScript, so I could probably work with that… Finally, I was making some progress 🙂 The plan started to take shape in my head:</p>
+<ol>
+<li>take the book in its ‘image’ format</li>
+<li>run it through OCR to extract its text</li>
+<li>convert it to a better ‘text’ format of some sort so my e-reader could read it</li>
+</ol>
+<h3>Putting it all together</h3>
+<p>Although I ended up adding a few extra steps, that is essentially very close to my final workflow. Here is the detailed process I came up with:</p>
+<ol>
+<li>Use Automator to split the original PDF book into several documents (1 document per page)
+<em>I’ve always loved Automator but I keep forgetting it exists somehow. It has saved me quite a lot of time over the years…</em></li>
+<li>Use Automator to transform each PDF page into an image
+<em>tesseract.js expects images so I’ll feed it images</em></li>
+<li>Run each image (= page of the book) through tesseract.js to extract its text</li>
+<li>Create a text file with the extracted content of each image</li>
+<li>Merge all text files into one file</li>
+<li>Format the text file to HTML
+<em>the final result just looks better on my e-reader compared to a basic txt file</em></li>
+</ol>
+<blockquote>
+<p>Here is the <a href="https://github.com/arnaudvalle/pdf-scan-to-text">repository of my prototype</a></p>
+</blockquote>
+<h2>Conclusion</h2>
+<p>So between the time spent researching and implementing my prototype, that’s how a 3€ e-book ended up costing me several hundred euros. I love it when code can help me solve a real-world problem. Sure, I could have just bought the book again in a different file format from some other online platform and that would have been it. But where is the fun in that?</p>
+<p><em>Note: I did search a fair bit and since my book is actually a very old book, I didn’t find any other version in my particular case so I was stuck with it</em></p>
+<p>But, along the way of this little project, I learnt quite a few things on a subject I knew little about and discovered a whole new world of terms, ecosystem etc… that who knows, may just help me in the future 🤷‍♂️</p>
+<p>Oh and the funny thing is, after all those hours and efforts spent converting that e-book, well… I still haven’t read it… 😂</p>
+
+                    </div>
+                </section>
+            </div>
+
+        </div>
+
+        <footer class="footer col" role="contentinfo">
+            <p>
+                <small>Copyright &copy; 2016 - <a href="https://arnaudvalle.com/">Arnaud Valle</a></small>
+            </p>
+        </footer>
+    
+        <script src="/assets/js/scripts.js" async></script>
+    </body>
+</html>
+
+
+
+
+
